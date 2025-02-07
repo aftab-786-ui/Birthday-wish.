@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Ronchi!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffcccb, #ff99aa);
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #ff0066;
+            margin: 20px 0;
+            animation: glow 1.5s infinite alternate, bounce 2s infinite;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #ff0066; }
+            100% { text-shadow: 0 0 30px #ff3385; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .message {
+            font-size: 1.2em;
+            color: #4a4a4a;
+            line-height: 1.6;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 102, 0.2);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .emoji-container {
+            margin: 20px 0;
+            font-size: 2em;
+        }
+
+        .emoji {
+            animation: float 3s infinite;
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        button {
+            background: #ff0066;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin: 20px 0;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background: #ff3385;
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            font-style: italic;
+            color: #ff0066;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji-container">
+            <span class="emoji">🎉</span>
+            <span class="emoji">🎂</span>
+            <span class="emoji">🎈</span>
+            <span class="emoji">💖</span>
+        </div>
+        
+        <h1>Happy Birthday, Ronchi!</h1>
+        
+        <div class="message">
+            <p>To the most amazing person in the universe 🌌,</p>
+            <p>On your special day, I wish you endless joy, laughter, and all the happiness your heart can hold! You make the world brighter just by being in it ✨</p>
+            <p>Thank you for being my sunshine on cloudy days ☀️</p>
+        </div>
+<button onclick="showSurprise()">Click for a Surprise! 🎁</button>
+        <div id="hiddenMessage" class="hidden-message"></div>
+
+        <div class="message">
+            <blockquote>
+                "The moment I saw you, I knew an adventure was about to happen."<br>
+                - Winnie the Pooh (but totally me 😉)
+            </blockquote>
+        </div>
+    </div>
+
+    <script>
+        function showSurprise() {
+            const messages = [
+                "You're the best thing that ever happened to me!",
+                "Your smile lights up my world 💡",
+                "I'm so grateful for your existence!",
+                "You're more amazing than you realize!",
+                "I love you to the moon and back 🌙"
+            ];
+            
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            const hiddenMessage = document.getElementById('hiddenMessage');
+            
+            hiddenMessage.style.display = 'block';
+            hiddenMessage.innerHTML = randomMessage;
+            
+            // Add temporary confetti effect
+            for(let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.innerHTML = ['🎉', '🎊', '✨', '💖'][Math.floor(Math.random() * 4)];
+                confetti.style.position = 'fixed';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animation = `float ${Math.random() * 3 + 2}s infinite`;
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+    </script>
+</body>
+</html>
